@@ -1,70 +1,77 @@
-# Getting Started with Create React App
+# 🎟️ UniEvents - Client Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Modern, responsive web application for university event discovery, registration, and management. Built with **React 19**, **Tailwind CSS**, and **React Router v7**.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## ✨ Features
 
-### `npm start`
+- **🎓 Student Experience**:
+  - Live event directory with category filtering (Tech, Arts, Sports, Workshops, etc.) and search.
+  - Interactive event detail modal with schedule, venue, capacity, and organizer information.
+  - One-click event registration with instant ticket code generation.
+  - Dedicated Student Dashboard showing upcoming registered events and cancellation options.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **🛡️ Admin Dashboard**:
+  - Real-time statistics: Total events, total registrations, active attendees, and capacity utilization.
+  - Complete Event CRUD: Create new events, edit details, delete events, or toggle featured status.
+  - Attendee roster modal: View student registrations per event.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **🔐 Authentication & Role Management**:
+  - Secure login & registration for Students and Administrators.
+  - Persistent auth tokens stored in `localStorage` with automated health check heartbeat.
+  - Live API status and server latency indicator in the navigation bar.
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🛠️ Tech Stack
 
-### `npm run build`
+- **Framework**: React 19 (`react-scripts 5.0.1`)
+- **Routing**: React Router DOM v7
+- **Styling**: Tailwind CSS v3.4 + PostCSS + Autoprefixer
+- **Icons**: Inline Heroicons SVG system
+- **Hosting**: Vercel (Configured with `vercel.json` for SPA rewrites and API proxies)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🚀 Getting Started
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 1. Install Dependencies
+```bash
+npm install
+```
 
-### `npm run eject`
+### 2. Configure Environment Variables
+Copy `.env.example` to `.env`:
+```bash
+cp .env.example .env
+```
+Inside `.env`:
+```env
+REACT_APP_API_URL=http://localhost:5000
+CI=false
+GENERATE_SOURCEMAP=false
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 3. Start Development Server
+```bash
+npm start
+```
+The app will run locally at [http://localhost:3000](http://localhost:3000).
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 📦 Production Build & Vercel Deployment
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Build Locally
+```bash
+npm run build
+```
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Deploying to Vercel
+1. Push this repository to GitHub.
+2. Import the repo on [Vercel](https://vercel.com).
+3. Set the Environment Variables:
+   - `CI`: `false`
+   - `REACT_APP_API_URL`: Your live backend API URL
+4. `vercel.json` will automatically route `/api/*` requests to your backend and handle React Router page refreshes without 404 errors.
